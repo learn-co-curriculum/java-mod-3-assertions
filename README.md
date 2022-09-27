@@ -189,6 +189,34 @@ void testNull() {
 }
 ```
 
+## Assertions and Unit Tests
+
+Now that we know a bunch of different assertion methods, we can write them into
+our unit tests!
+
+Remember that unit tests are supposed to be the smallest unit of testing - each
+test will test a specific functionality. It is good practice to try to minimize
+the asserts in each test; with one assert per test if possible. For example, if
+we want to test if a method returns a `null` value given one input and a
+specific `String` value given another input, it is best to break those up into
+two different tests:
+
+```java
+@Test
+void reverse() {
+    String testString = "sample";
+    String reversed = stringUtils.reverse(testString);
+    assertEquals("elpmas", reversed);
+}
+
+@Test
+void reverseNull() {
+    String testString = null;
+    String reversed = stringUtils.reverse(testString);
+    assertNull(reversed);
+}
+```
+
 ## Summary
 
 The assertion methods we reviewed in this lesson can also be found in the JUnit
